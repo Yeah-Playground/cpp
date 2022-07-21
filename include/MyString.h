@@ -1,7 +1,6 @@
 #pragma
 
-class MyString
-{
+class MyString {
 private:
   char *data;
   int length;

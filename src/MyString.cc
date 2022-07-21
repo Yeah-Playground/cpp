@@ -6,21 +6,17 @@
 MyString::MyString()
     : data(nullptr),
       length(0)
-{
-}
+{}
 
-MyString::MyString(MyString &rhs) : length(rhs.length)
-{
+MyString::MyString(MyString &rhs) : length(rhs.length) {
   setString(rhs.data);
 }
 
-MyString::~MyString()
-{
+MyString::~MyString() {
   release();
 }
 
-int MyString::setString(const char *str)
-{
+int MyString::setString(const char *str) {
   release();
 
   if (str == nullptr)
@@ -38,13 +34,11 @@ int MyString::setString(const char *str)
   return len;
 }
 
-const char *MyString::getString() const
-{
+const char *MyString::getString() const {
   return data;
 }
 
-void MyString::release()
-{
+void MyString::release() {
   if (data != nullptr)
     delete[] data;
 
@@ -52,20 +46,17 @@ void MyString::release()
   length = 0;
 }
 
-void MyString::print()
-{
+void MyString::print() {
   std::cout << data << std::endl;
 }
 
-MyString &MyString::operator=(MyString &rhs)
-{
+MyString &MyString::operator=(MyString &rhs) {
   setString(rhs.data);
   length = rhs.length;
 
   return *this;
 }
 
-MyString::operator char *(void)
-{
+MyString::operator char *(void) {
   return data;
 }
